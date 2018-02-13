@@ -15,3 +15,17 @@
 * 微信开发者工具-->项目-->关闭上传代码时样式自动补全 重要：某些情况下漏掉此项会也会运行报错。
 * 微信开发者工具-->项目-->关闭代码压缩上传 重要：开启后，会导致真机computed, props.sync 等等属性失效。
 * 项目根目录运行wepy build --watch，开启实时编译。
+
+### mock 数据服务器启动方式
+
+  首先确保你的电脑上安装了 npm
+  npm install -g json-server
+  json-server mock.json --routes routes.json
+  打开浏览器，到 localhost:3000，可以看到文档，里面是定义的接口。
+
+
+### 在此项目中，接口有三个如下所示：
+
+  1. /records `用于获取有哪些天有多少张图片信息`
+  2. /images?date={date} `用于获取指定当天的所有图片`
+  3. /images/info/{id} `用于获取一张图片对应的植物情况`
