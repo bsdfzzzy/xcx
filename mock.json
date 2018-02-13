@@ -1,0 +1,67 @@
+{
+  "records": {
+    "data": [{
+      "id": 1,
+      "date": "2018-02-11",
+      "number": "10"
+    }, {
+      "id": 2,
+      "date": "2018-02-06",
+      "number": "9"
+    }, {
+      "id": 3,
+      "date": "2018-01-31",
+      "number": "56"
+    }, {
+      "id": 4,
+      "date": "2018-01-26",
+      "number": "23"
+    }, {
+      "id": 5,
+      "date": "2018-01-09",
+      "number": "3"
+    }]
+  },
+  "images": {
+    "data": [{
+      "id": 1,
+      "route": "/images/rain.jpg"
+    }, {
+      "id": 2,
+      "route": "/images/rain.jpg"
+    }, {
+      "id": 3,
+      "route": "/images/rain.jpg"
+    }, {
+      "id": 4,
+      "route": "/images/rain.jpg"
+    }, {
+      "id": 5,
+      "route": "/images/rain.jpg"
+    }, {
+      "id": 6,
+      "route": "/images/rain.jpg"
+    }, {
+      "id": 7,
+      "route": "/images/rain.jpg"
+    }, {
+      "id": 8,
+      "route": "/images/rain.jpg"
+    }, {
+      "id": 9,
+      "route": "/images/rain.jpg"
+    }]
+  },
+  "infos": {
+    "data": [{
+      "name": "基本信息",
+      "content": "绿萝（学名：Epipremnum aureum），属于麒麟叶属植物，大型常绿藤本，生长于热带地区，常攀援生长在雨林的岩石和树干上，其缠绕性强，气根发达，可以水培种植"
+    }, {
+      "name": "分析结果",
+      "content": "当前植物部分叶片叶边发枯，生长状况不良"
+    }, {
+      "name": "诊断意见",
+      "content": "植物目前生长状况不良，水分不足，此时需要及时给绿萝浇足够的水"
+    }]
+  }
+}

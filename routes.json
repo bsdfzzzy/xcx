@@ -1,0 +1,4 @@
+{
+  "/images\\?date=:date": "/images",
+  "/images/:id": "/infos"
+}

@@ -1,0 +1,76 @@
+<style lang="less">
+  .container {
+    height: 100%;
+    background-color: white;
+  }
+
+  .image-container {
+    width: 100%;
+    height: 300px;
+
+    image {
+      width: 80%;
+      height: 240px;
+      margin-left: 10%;
+      margin-top: 20px;
+    }
+  }
+</style>
+<template>
+  <view class="container">
+    <div
+      class="image-container"
+      wx:for="{{images}}"
+      wx:for-index="index"
+      wx:key="{{index}}"
+      wx:for-item="imageEntity"
+      bindtap="goToImageDetail({{imageEntity}})"
+    >
+      <image src="{{imageEntity.src}}" />
+    </div>
+  </view>
+</template>
+<script>
+  import wepy from 'wepy'
+
+  export default class Pictures extends wepy.page {
+    config = {
+      navigationBarTitleText: '当天采集到的图片'
+    }
+
+    data = {
+      images: [{
+        id: '1',
+        src: '/images/luluohuang.jpg'
+      }, {
+        id: '2',
+        src: '/images/luluohuang.jpg'
+      }, {
+        id: '3',
+        src: '/images/luluohuang.jpg'
+      }, {
+        id: '4',
+        src: '/images/luluohuang.jpg'
+      }, {
+        id: '5',
+        src: '/images/luluohuang.jpg'
+      }]
+    }
+
+    computed = {}
+
+    methods = {
+      goToImageDetail(imageEntity) {
+        wepy.navigateTo({
+          url: '/pages/info?id=' + imageEntity.id
+        })
+      }
+    }
+
+    events = {}
+
+    onLoad(option) {
+      console.log(option)
+    }
+  }
+</script>
