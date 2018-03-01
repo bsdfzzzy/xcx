@@ -72,6 +72,16 @@
 <script>
   import wepy from 'wepy'
   import dateParse from '../utils/dateParse'
+  import { getHomePageInformation } from '../store/actions'
+  import { connect } from 'wepy-redux'
+
+  @connect({
+    plantLogs(state) {
+      return state.home.plantLogs
+    }
+  }, {
+    getHomePageInformation
+  })
 
   export default class Index extends wepy.page {
     config = {
@@ -79,9 +89,6 @@
     }
 
     data = {
-      userInfo: {
-        nickName: '加载中...'
-      },
       plantLogs: [{
         date: dateParse.parse(new Date(2018, 1, 31)),
         num: 3
@@ -106,6 +113,8 @@
 
     events = {}
 
-    onLoad() {}
+    onLoad() {
+      this.methods.getHomePageInformation()
+    }
   }
 </script>

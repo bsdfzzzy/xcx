@@ -43,7 +43,7 @@
 <template>
   <view class="container">
     <div class="image-container">
-      <image src="/images/luluohuang.jpg" />
+      <image src="{{imageUrl}}" />
     </div>
     <div class="info">
       <div
@@ -61,6 +61,29 @@
 </template>
 <script>
   import wepy from 'wepy'
+  import { connect } from 'wepy-redux'
+  import { getPlantInfo } from '../store/actions'
+
+  @connect({
+    details(state) {
+      let data = state.info.data
+      return [{
+        name: '基本信息',
+        content: data.basicInfo
+      }, {
+        name: '分析结果',
+        content: data.result === 0 ? '当前植物部分叶片叶边发枯，生长状况不良' : '植物目前生长状况不良，水分不足，此时需要及时给绿萝浇足够的水'
+      }, {
+        name: '诊断意见',
+        content: data.result === 0 ? '当前植物叶片基本都是呈现绿色，生长状况良好' : '植物目前生长状况良好，请继续保持。'
+      }]
+    },
+    imageUrl(state) {
+      return state.info.data.imageUrl
+    }
+  }, {
+    getPlantInfo
+  })
 
   export default class Info extends wepy.page {
     config = {
@@ -69,14 +92,14 @@
 
     data = {
       details: [{
-        name: "基本信息",
-        content: "绿萝（学名：Epipremnum aureum），属于麒麟叶属植物，大型常绿藤本，生长于热带地区，常攀援生长在雨林的岩石和树干上，其缠绕性强，气根发达，可以水培种植"
+        name: '基本信息',
+        content: '绿萝（学名：Epipremnum aureum），属于麒麟叶属植物，大型常绿藤本，生长于热带地区，常攀援生长在雨林的岩石和树干上，其缠绕性强，气根发达，可以水培种植'
       }, {
-        name: "分析结果",
-        content: "当前植物部分叶片叶边发枯，生长状况不良"
+        name: '分析结果',
+        content: '当前植物部分叶片叶边发枯，生长状况不良'
       }, {
-        name: "诊断意见",
-        content: "植物目前生长状况不良，水分不足，此时需要及时给绿萝浇足够的水"
+        name: '诊断意见',
+        content: '植物目前生长状况不良，水分不足，此时需要及时给绿萝浇足够的水'
       }]
     }
 
@@ -86,6 +109,8 @@
 
     events = {}
 
-    onLoad() {}
+    onLoad(option) {
+      this.methods.getPlantInfo(option.id)
+    }
   }
 </script>

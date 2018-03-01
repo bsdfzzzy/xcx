@@ -26,12 +26,22 @@
       wx:for-item="imageEntity"
       bindtap="goToImageDetail({{imageEntity}})"
     >
-      <image src="{{imageEntity.src}}" />
+      <image src="{{imageEntity.imageUrl}}" />
     </div>
   </view>
 </template>
 <script>
   import wepy from 'wepy'
+  import { connect } from 'wepy-redux'
+  import { getPicturesByDate } from '../store/actions'
+
+  @connect({
+    images(state) {
+      return state.pictures.data
+    }
+  }, {
+    getPicturesByDate
+  })
 
   export default class Pictures extends wepy.page {
     config = {
@@ -41,19 +51,19 @@
     data = {
       images: [{
         id: '1',
-        src: '/images/luluohuang.jpg'
+        imageUrl: '/images/luluohuang.jpg'
       }, {
         id: '2',
-        src: '/images/luluohuang.jpg'
+        imageUrl: '/images/luluohuang.jpg'
       }, {
         id: '3',
-        src: '/images/luluohuang.jpg'
+        imageUrl: '/images/luluohuang.jpg'
       }, {
         id: '4',
-        src: '/images/luluohuang.jpg'
+        imageUrl: '/images/luluohuang.jpg'
       }, {
         id: '5',
-        src: '/images/luluohuang.jpg'
+        imageUrl: '/images/luluohuang.jpg'
       }]
     }
 
@@ -71,6 +81,7 @@
 
     onLoad(option) {
       console.log(option)
+      this.methods.getPicturesByDate(option.date)
     }
   }
 </script>
