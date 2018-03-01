@@ -80,7 +80,6 @@
     events = {}
 
     onLoad(option) {
-      console.log(option)
       this.methods.getPicturesByDate(option.date)
     }
   }
