@@ -23,7 +23,7 @@ import { setStore } from 'wepy-redux'
 import configStore from './store'
 import Promise from 'promise-polyfill'
 
-const store = configStore()
+export const store = configStore()
 setStore(store)
 
 export default class extends wepy.app {
